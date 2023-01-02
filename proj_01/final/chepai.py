@@ -59,7 +59,7 @@ def lpr(filename):
             dist_r = r
 
     # 画出识别结果，由于之前多做了一次膨胀操作，导致矩形框稍大了一些，因此这里对于框架+3-3可以使框架更贴合车牌
-    cv2.rectangle(img, (dist_r[0] + 3, dist_r[1]), (dist_r[2] - 3, dist_r[3]), (0, 255, 0), 2)
+    cv2.rectangle(img, (dist_r[0] + 1, dist_r[1]), (dist_r[2] - 1, dist_r[3]), (0, 255, 0), 2)
     cv2.imshow("lpr", img)
     cv2.waitKey(0)
 
