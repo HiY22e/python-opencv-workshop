@@ -67,4 +67,4 @@ def lpr(filename):
 # 主程序
 # for i in range(5):
 #     lpr(str(i+1) + ".jpg")
-lpr('../final/test/chepai03.png')
+lpr('test/chepai03.jpg')
