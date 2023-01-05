@@ -586,7 +586,7 @@ def tesseract_ocr(car_img_path):
 
 # 配合pytesseract食用 需要配置Tesseract-OCR的环境变量
 def pytesseract_ocr(car_img_path):
-    print('\n函数pytesseract_ocr识别结果如下：')
+    print('\n函数pytesseract_ocr识别结果如下:')
     img_cv = cv2.imread(car_img_path)
 
     # By default OpenCV stores images in BGR format and since pytesseract assumes RGB format,
