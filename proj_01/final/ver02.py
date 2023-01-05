@@ -4,11 +4,9 @@ import matplotlib.pyplot as plt
 import os
 import time
 import sklearn
+import pytesseract
 
 
-# import pytesseract
-
-# 开发环境 pycharm python-3.8.5 opencv-python-4.5.4.58 matplotlib-3.5.0 pip-21.2.3 Tesseract-OCR-5.0.0
 # 参考：https://blog.csdn.net/weixin_41695564/article/details/79712393
 
 # 该函数能够读取磁盘中的图片文件，默认以彩色图像的方式进行读取
@@ -359,7 +357,7 @@ def remove_plate_upanddown_border(card_img):
     ##################################################
 
 
-#####################二分-K均值聚类算法############################
+# ####################二分-K均值聚类算法############################
 
 def distEclud(vecA, vecB):
     """
@@ -599,7 +597,7 @@ def tesseract_ocr(car_img_path):
 
 
 ############################机器学习识别字符##########################################
-#这部分是支持向量机的代码
+# 这部分是支持向量机的代码
 ############################机器学习识别字符##########################################
 
 
@@ -706,7 +704,7 @@ def SVM_rocognition_character(character_list):
 
 if __name__ == "__main__":
     # 你要识别的图片
-    img = imread_photo("img/LPR/car05.jpg")
+    img = imread_photo("yzm.png")
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     cv2.imshow('img', img)
     cv2.imshow('gray_img', gray_img)
