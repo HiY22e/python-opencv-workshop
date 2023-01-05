@@ -566,7 +566,7 @@ def ocr_pHash(char_path, letter_path):
 # Tesseract-OCR 图像识别 传入车牌路径
 def tesseract_ocr(car_img_path):
     print('\n函数tesseract_ocr识别结果如下：')
-    ret = os.popen('D:\Tesseract-OCR\\tesseract.exe ' + car_img_path + ' result -l chi_sim')
+    ret = os.popen('D:/Tesseract-OCR/tesseract.exe ' + car_img_path + ' result -l chi_sim')
     # print(ret)
 
     # 给tesseract一点处理时间
@@ -585,15 +585,15 @@ def tesseract_ocr(car_img_path):
 
 
 # 配合pytesseract食用 需要配置Tesseract-OCR的环境变量
-# def pytesseract_ocr(car_img_path):
-#     print('\n函数pytesseract_ocr识别结果如下：')
-#     img_cv = cv2.imread(car_img_path)
-#
-#     # By default OpenCV stores images in BGR format and since pytesseract assumes RGB format,
-#     # we need to convert from BGR to RGB format/mode:
-#     img_rgb = cv2.cvtColor(img_cv, cv2.COLOR_BGR2RGB)
-#     ret = pytesseract.image_to_string(img_rgb, lang='chi_sim')
-#     print('车牌为：' + ret + '\n')
+def pytesseract_ocr(car_img_path):
+    print('\n函数pytesseract_ocr识别结果如下：')
+    img_cv = cv2.imread(car_img_path)
+
+    # By default OpenCV stores images in BGR format and since pytesseract assumes RGB format,
+    # we need to convert from BGR to RGB format/mode:
+    img_rgb = cv2.cvtColor(img_cv, cv2.COLOR_BGR2RGB)
+    ret = pytesseract.image_to_string(img_rgb, lang='chi_sim')
+    print('车牌为：' + ret + '\n')
 
 
 ############################机器学习识别字符##########################################
@@ -704,7 +704,7 @@ def SVM_rocognition_character(character_list):
 
 if __name__ == "__main__":
     # 你要识别的图片
-    img = imread_photo("yzm.png")
+    img = imread_photo("img/LPR/car10.jpg")
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     cv2.imshow('img', img)
     cv2.imshow('gray_img', gray_img)
@@ -739,15 +739,15 @@ if __name__ == "__main__":
         character_list = split_licensePlate_character(plate_binary_img)
 
         # SVM字符识别
-        SVM_rocognition_character(character_list)
+        # SVM_rocognition_character(character_list)
 
         # 感知哈希算法的字符识别
-        ocr_pHash('img/LPR', 'img/LPR/letter')
+        # ocr_pHash('img/LPR', 'img/LPR/letter')
 
         # Tesseract-OCR 图像识别
-        tesseract_ocr(car_img_path)
+        # tesseract_ocr(car_img_path)
         # 配合pytesseract食用
-        # pytesseract_ocr(car_img_path)
+        pytesseract_ocr(car_img_path)
 
         cv2.waitKey(0)
         cv2.destroyAllWindows()
